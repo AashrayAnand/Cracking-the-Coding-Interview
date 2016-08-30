@@ -6,6 +6,8 @@ public class _1_1 {
 		String value2 = "aabbccddeeffgghhii";
 		System.out.println(isUnique(value));
 		System.out.println(isUnique(value2));
+		System.out.println(isUniqueSlow(value));
+		System.out.println(isUniqueSlow(value2));
 	}
 
 	public static boolean isUnique(String str){
@@ -19,5 +21,18 @@ public class _1_1 {
 			set[curr] = true;
 		}
 		return true;
+	}
+
+	public static boolean isUniqueSlow(String str){
+		if(str.length() == 0){
+			return true;
+		}
+
+		if(str.substring(1).contains(str.substring(0,1))){
+			return false;
+		}
+
+		return isUniqueSlow(str.substring(1));
+
 	}
 }
